@@ -6,64 +6,47 @@ import { OrbitControls, useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
 import { motion } from 'framer-motion'
 
-// function My3DModel() {
-//   // 모델이 없을 경우, 아래 코드를 RotatingCube로 대체할 수 있음
-//   const { scene } = useGLTF('/models/scene.gltf') as any;
-//   return <primitive object={scene} scale={1} />;
-// }
-
-// 만약 모델이 없다면:
-// function RotatingCube() {
-//   const ref = useRef<THREE.Mesh>(null);
-//   useFrame(() => {
-//     if(ref.current) {
-//       ref.current.rotation.x += 0.01
-//       ref.current.rotation.y += 0.01
-//     }
-//   })
-//
-//   return (
-//     <mesh ref={ref}>
-//       <boxGeometry args={[1,1,1]}/>
-//       <meshStandardMaterial color="skyblue" />
-//     </mesh>
-//   )
-// }
+function ComputerModel() {
+  const { scene } = useGLTF('/computer_gltf/scene.gltf') as any;
+  return <primitive object={scene} scale={0.3} />;
+}
 
 export default function Page() {
   return (
     <>
       {/* Hero Section */}
       <section id="hero" className="w-full h-screen relative flex items-center justify-center bg-gray-100 dark:bg-gray-800">
-        {/*<Canvas className="absolute inset-0">*/}
-        {/*  <ambientLight intensity={0.5} />*/}
-        {/*  <directionalLight position={[2,5,5]} />*/}
-        {/*  <My3DModel />*/}
-        {/*  <OrbitControls enablePan={false} enableZoom={false} />*/}
-        {/*</Canvas>*/}
-        <div className="relative z-10 text-center p-4">
+        <Canvas className="absolute inset-0">
+          <ambientLight intensity={0.5} />
+          <directionalLight position={[2,5,5]} />
+          <ComputerModel />
+          <OrbitControls enablePan={false} enableZoom={false} />
+        </Canvas>
+      </section>
+
+      <section id="introduce" className="w-full h-screen relative flex items-center justify-center bg-gray-100 dark:bg-gray-800"><div className="relative z-10 text-center p-4">
           <motion.h1
             className="text-4xl font-bold mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            initial={{opacity: 0, y: 20}}
+            animate={{opacity: 1, y: 0}}
+            transition={{duration: 0.7}}
           >
             Hello, I'm a Front-End Developer
           </motion.h1>
           <motion.p
             className="text-lg mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            initial={{opacity: 0, y: 20}}
+            animate={{opacity: 1, y: 0}}
+            transition={{duration: 0.7, delay: 0.2}}
           >
             I specialize in React, Next.js, and 3D web experiences.
           </motion.p>
           <motion.a
             href="#projects"
             className="px-6 py-2 bg-black text-white rounded hover:bg-gray-900 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
+            initial={{opacity: 0, y: 20}}
+            animate={{opacity: 1, y: 0}}
+            transition={{duration: 0.7, delay: 0.4}}
           >
             View My Work
           </motion.a>
@@ -74,19 +57,19 @@ export default function Page() {
       <section id="about" className="max-w-7xl mx-auto py-20 px-4">
         <motion.h2
           className="text-3xl font-bold mb-8"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          initial={{opacity: 0, y: 50}}
+          whileInView={{opacity: 1, y: 0}}
+          viewport={{once: true}}
+          transition={{duration: 0.5}}
         >
           About Me
         </motion.h2>
         <motion.p
           className="text-lg leading-relaxed"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          initial={{opacity: 0, y: 50}}
+          whileInView={{opacity: 1, y: 0}}
+          viewport={{once: true}}
+          transition={{duration: 0.5, delay: 0.2}}
         >
           I am a front-end developer with a passion for creating interactive, immersive web experiences.
           My skill set includes React, Next.js, and Three.js. I enjoy exploring new technologies
@@ -95,7 +78,8 @@ export default function Page() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="max-w-7xl mx-auto py-20 px-4 bg-gray-50 dark:bg-gray-700 transition-colors duration-300">
+      <section id="projects"
+               className="max-w-7xl mx-auto py-20 px-4 bg-gray-50 dark:bg-gray-700 transition-colors duration-300">
         <motion.h2
           className="text-3xl font-bold mb-8"
           initial={{ opacity: 0, y: 50 }}
