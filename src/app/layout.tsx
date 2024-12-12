@@ -1,7 +1,6 @@
-// app/layout.tsx (서버 컴포넌트)
 import './globals.css'
 import { ReactNode } from 'react'
-import DarkModeToggle from "@/components/DarkModeToggle";
+import DarkModeToggle from '@/components/DarkModeToggle'
 
 export const metadata = {
   title: 'My Portfolio',
@@ -19,7 +18,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <a href="#about" className="hover:underline">About</a>
           <a href="#projects" className="hover:underline">Projects</a>
           <a href="#contact" className="hover:underline">Contact</a>
-          {/* 다크모드 토글을 별도 클라이언트 컴포넌트로 */}
           <DarkModeToggle />
         </nav>
       </div>
