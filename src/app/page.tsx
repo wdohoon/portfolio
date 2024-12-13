@@ -81,6 +81,90 @@ export default function Page() {
         </motion.p>
       </section>
 
+      {/* Skills Section */}
+      <section id="skills" className="max-w-7xl mx-auto py-20 px-4">
+        <motion.h2
+          className="text-3xl font-bold mb-8"
+          initial={{opacity: 0, y: 50}}
+          whileInView={{opacity: 1, y: 0}}
+          viewport={{once: true}}
+          transition={{duration: 0.5}}
+        >
+          Skills
+        </motion.h2>
+
+        {/* 프론트엔드 스킬 */}
+        <motion.div
+          initial={{opacity: 0, y: 20}}
+          whileInView={{opacity: 1, y: 0}}
+          viewport={{once: true}}
+          transition={{duration: 0.5, delay: 0.2}}
+          className="mb-12"
+        >
+          <h3 className="text-2xl font-semibold mb-4">Front-End</h3>
+          <div className="flex flex-wrap gap-3 text-sm">
+            {["HTML","CSS","SCSS","JavaScript","React","Next.js","Tailwind","Styled-Components","TypeScript"].map(skill => (
+              <span key={skill} className="px-3 py-1 bg-gray-200 dark:bg-gray-600 rounded">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* 백엔드 스킬 */}
+        <motion.div
+          initial={{opacity: 0, y: 20}}
+          whileInView={{opacity: 1, y: 0}}
+          viewport={{once: true}}
+          transition={{duration: 0.5, delay: 0.4}}
+          className="mb-12"
+        >
+          <h3 className="text-2xl font-semibold mb-4">Back-End</h3>
+          <div className="flex flex-wrap gap-3 text-sm">
+            {["Java","Python","PHP"].map(skill => (
+              <span key={skill} className="px-3 py-1 bg-gray-200 dark:bg-gray-600 rounded">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* 데이터베이스 스킬 */}
+        <motion.div
+          initial={{opacity: 0, y: 20}}
+          whileInView={{opacity: 1, y: 0}}
+          viewport={{once: true}}
+          transition={{duration: 0.5, delay: 0.6}}
+          className="mb-12"
+        >
+          <h3 className="text-2xl font-semibold mb-4">Database</h3>
+          <div className="flex flex-wrap gap-3 text-sm">
+            {["MySQL","Oracle","PostgreSQL"].map(skill => (
+              <span key={skill} className="px-3 py-1 bg-gray-200 dark:bg-gray-600 rounded">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* 도구 스킬 */}
+        <motion.div
+          initial={{opacity: 0, y: 20}}
+          whileInView={{opacity: 1, y: 0}}
+          viewport={{once: true}}
+          transition={{duration: 0.5, delay: 0.8}}
+        >
+          <h3 className="text-2xl font-semibold mb-4">Tools</h3>
+          <div className="flex flex-wrap gap-3 text-sm">
+            {["Git","GitHub","VS Code","IntelliJ","Webpack","Notion","Slack","Supabase","AWS"].map(skill => (
+              <span key={skill} className="px-3 py-1 bg-gray-200 dark:bg-gray-600 rounded">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
       {/* Projects Section */}
       <section id="projects"
                className="max-w-7xl mx-auto py-20 px-4 bg-gray-50 dark:bg-gray-700 transition-colors duration-300">
