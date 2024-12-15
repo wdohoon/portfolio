@@ -1,3 +1,70 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer components {
+    .timeline-img {
+        @apply absolute left-1/2 -ml-2 w-4 h-4 rounded-full bg-indigo-500 shadow-md;
+    }
+
+    .timeline-container {
+        @apply relative pt-2 px-6 flex items-center justify-between md:flex-row-reverse;
+    }
+
+    .timeline-pointer {
+        @apply absolute inset-0 left-10 h-4 w-4 transform rotate-45 bg-white dark:bg-gray-800 md:left-14;
+    }
+
+    .skill-bubble {
+        @apply inline-block px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 rounded-full shadow-sm transition-all duration-300 ease-in-out;
+    }
+
+    .skill-bubble:hover {
+        @apply transform scale-110 shadow-md;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Gradient text */
+.gradient-text {
+    background: linear-gradient(45deg, #4f46e5, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Animated background */
+.animated-bg {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+

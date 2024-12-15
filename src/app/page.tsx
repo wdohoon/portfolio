@@ -160,6 +160,19 @@ export default function Page() {
         </motion.p>
       </section>
 
+      {/* Work Experience Section */}
+      <section id="experience" className="max-w-7xl mx-auto py-20 px-4">
+        <motion.h2
+          className="text-3xl font-bold mb-8"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          Work Experience
+        </motion.h2>
+      </section>
+
       {/* Skills 섹션 */}
       <section id="skills" className="max-w-7xl mx-auto py-20 px-4">
         <motion.h2
@@ -355,3 +368,4 @@ export default function Page() {
     </>
   )
 }
+
