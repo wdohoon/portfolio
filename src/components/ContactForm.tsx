@@ -36,8 +36,13 @@ export default function ContactForm() {
 
       console.log(result.text)
       setDone(true)
-    } catch (err: any) {
-      console.error(err.text)
+    } catch (err: unknown) {
+      // err가 Error 인스턴스인지 체크
+      if (err instanceof Error) {
+        console.error(err.message)
+      } else {
+        console.error('An unknown error occurred:', err)
+      }
       setError('Failed to send email. Please try again later.')
     } finally {
       setLoading(false)
@@ -100,4 +105,3 @@ export default function ContactForm() {
     </div>
   )
 }
-
