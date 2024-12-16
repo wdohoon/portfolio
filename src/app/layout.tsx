@@ -2,7 +2,6 @@ import './globals.css'
 import { ReactNode } from 'react'
 import DarkModeToggle from '@/components/DarkModeToggle'
 import { Noto_Sans_KR } from 'next/font/google'
-import Logo3D from "@/components/Logo3D";
 
 const notoSansKr = Noto_Sans_KR({
   subsets: ['latin'],
@@ -21,9 +20,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <header className="fixed w-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md z-50 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Logo3D />
           <a href="/" className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">
-            MyLogo
+            DH
           </a>
           <nav className="hidden md:flex space-x-8">
             <NavLink href="#about">About</NavLink>
@@ -31,7 +29,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <NavLink href="#contact">Contact</NavLink>
           </nav>
           <div className="flex items-center">
-            {/* 햄버거 메뉴 등 필요 시 여기에 */}
+            {/* 햄버거 메뉴 등 필요 시 추가 */}
             <button className="ml-4 md:hidden">
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
