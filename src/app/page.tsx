@@ -244,7 +244,7 @@ export default function Page() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            연락하기
+            Contact
           </motion.h2>
           <motion.p
             className="mb-8 text-xl text-center"
@@ -253,7 +253,7 @@ export default function Page() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            아래 채널을 통해 언제든지 문의하실 수 있습니다.
+            아래 Contact를 통해 언제든지 문의하실 수 있습니다.
           </motion.p>
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8">
             <ContactForm />
