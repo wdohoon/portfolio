@@ -15,7 +15,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="ko" className={notoSansKr.className}>
+    <html lang="ko" className={`${notoSansKr.className} dark`}>
     <body className="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
     <header className="fixed w-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md z-50 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,7 +29,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <NavLink href="#contact">Contact</NavLink>
           </nav>
           <div className="flex items-center">
-            {/* 햄버거 메뉴 등 필요 시 추가 */}
             <button className="ml-4 md:hidden">
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -52,7 +51,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </div>
     </footer>
 
-    {/* Dark Mode Toggle을 body 하단에 렌더링하여 우측 하단에 고정 */}
     <DarkModeToggle />
     </body>
     </html>
