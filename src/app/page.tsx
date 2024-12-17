@@ -7,7 +7,7 @@ import { motion, AnimatePresence, useInView } from 'framer-motion'
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
 import * as THREE from 'three'
 import ContactForm from '@/components/ContactForm'
-import { Github, Linkedin } from 'lucide-react'
+import { Github, Linkedin, ExternalLink } from 'lucide-react'
 
 function RotatingBox() {
   const ref = useRef<THREE.Mesh>(null)
@@ -192,7 +192,7 @@ export default function Page() {
               <p><strong className="text-indigo-600 dark:text-indigo-400">프론트엔드:</strong> HTML, CSS, SCSS, JavaScript,
                 TypeScript, React, Next.js, Tailwind,
                 Styled-Components, Three.js</p>
-              <p><strong className="text-indigo-600 dark:text-indigo-400">백엔드:</strong> Java, Python, PHP</p>
+              <p><strong className="text-indigo-600 dark:text-indigo-400">��엔드:</strong> Java, Python, PHP</p>
               <p><strong className="text-indigo-600 dark:text-indigo-400">데이터베이스:</strong> MySQL, Oracle, PostgreSQL</p>
               <p><strong className="text-indigo-600 dark:text-indigo-400">도구:</strong> Git, GitHub, VS Code, IntelliJ,
                 Webpack, Notion, Slack, Supabase, AWS</p>
@@ -334,19 +334,14 @@ export default function Page() {
                   {selectedProject.github && (
                     <a href={selectedProject.github} target="_blank" rel="noopener noreferrer"
                        className="px-6 py-3 bg-gray-800 text-white dark:bg-gray-200 dark:text-gray-800 rounded-full hover:bg-gray-700 dark:hover:bg-gray-300 transition text-sm font-semibold flex items-center">
-                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 .3C5.36.3 ..."/>
-                      </svg>
+                      <Github className="w-5 h-5 mr-2" />
                       GitHub
                     </a>
                   )}
                   {selectedProject.live && (
                     <a href={selectedProject.live} target="_blank" rel="noopener noreferrer"
                        className="px-6 py-3 bg-indigo-600 text-white dark:bg-indigo-500 rounded-full hover:bg-indigo-700 dark:hover:bg-indigo-600 transition text-sm font-semibold flex items-center">
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" strokeWidth={2}
-                           viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6..."/>
-                      </svg>
+                      <ExternalLink className="w-5 h-5 mr-2" />
                       사이트 방문
                     </a>
                   )}
@@ -360,3 +355,4 @@ export default function Page() {
     </ParallaxProvider>
   )
 }
+
