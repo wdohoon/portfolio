@@ -84,7 +84,7 @@ const projects: Project[] = [
   {
     name: "Moden7ai",
     live: "http://moden7ai.com",
-    description: "특수한 서비스를 제공하는 프로젝트를 회사에서 진행했습니다."
+    description: "회사 홍보 서비스를 제공하는 프로젝트를 회사에서 진행했습니다."
   },
   {
     name: "Kidb",
