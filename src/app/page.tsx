@@ -7,6 +7,7 @@ import { motion, AnimatePresence, useInView } from 'framer-motion'
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
 import * as THREE from 'three'
 import ContactForm from '@/components/ContactForm'
+import { Github, Linkedin } from 'lucide-react'
 
 function RotatingBox() {
   const ref = useRef<THREE.Mesh>(null)
@@ -124,40 +125,40 @@ export default function Page() {
         >
           {/* 3D Canvas Background */}
           <Canvas className="absolute inset-0 !h-1/2">
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[2, 5, 5]} />
-            <RotatingBox />
-            <OrbitControls enablePan={false} enableZoom={false} enableRotate={false} />
+            <ambientLight intensity={0.5}/>
+            <directionalLight position={[2, 5, 5]}/>
+            <RotatingBox/>
+            <OrbitControls enablePan={false} enableZoom={false} enableRotate={false}/>
           </Canvas>
 
           <Parallax speed={-10} className="absolute inset-0">
-            <div className="w-full h-full bg-[url('/path/to/your/bg-pattern.png')] opacity-20" />
+            <div className="w-full h-full bg-[url('/path/to/your/bg-pattern.png')] opacity-20"/>
           </Parallax>
 
           <div className="relative z-10 text-center p-4 max-w-3xl">
             <motion.h1
               className="text-5xl font-extrabold mb-6 text-white"
-              style={{ letterSpacing: '0.1em' }}
-              initial={{ opacity: 0, y: 50 }}
-              animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 1, delay: 0.2 }}
+              style={{letterSpacing: '0.1em'}}
+              initial={{opacity: 0, y: 50}}
+              animate={heroInView ? {opacity: 1, y: 0} : {}}
+              transition={{duration: 1, delay: 0.2}}
             >
               안녕하세요, 원도훈입니다.
             </motion.h1>
             <motion.p
               className="text-2xl mb-10 text-white/90"
-              initial={{ opacity: 0, y: 50 }}
-              animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 1, delay: 0.7 }}
+              initial={{opacity: 0, y: 50}}
+              animate={heroInView ? {opacity: 1, y: 0} : {}}
+              transition={{duration: 1, delay: 0.7}}
             >
               React, Next.js로 최신화된 웹 경험을 만듭니다.
             </motion.p>
             <motion.a
               href="#projects"
               className="px-10 py-4 bg-white text-[#302b63] rounded-full hover:bg-indigo-100 transition inline-block text-lg font-semibold shadow-lg hover:shadow-xl"
-              initial={{ opacity: 0, y: 50 }}
-              animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 1, delay: 1.2 }}
+              initial={{opacity: 0, y: 50}}
+              animate={heroInView ? {opacity: 1, y: 0} : {}}
+              transition={{duration: 1, delay: 1.2}}
             >
               프로젝트 보러가기
             </motion.a>
@@ -175,18 +176,26 @@ export default function Page() {
             </p>
             <h3 className="text-3xl font-semibold mb-6">경력</h3>
             <ul className="list-disc list-inside mb-10 text-lg space-y-2">
-              <li><strong className="text-indigo-600 dark:text-indigo-400">itso (인턴 1개월)</strong> - HTML, CSS, JS, jQuery 활용</li>
-              <li><strong className="text-indigo-600 dark:text-indigo-400">모든세븐 (정규직 6개월)</strong> - HTML, CSS, JS, jQuery, MySQL, PHP 기반 웹사이트 개발</li>
-              <li><strong className="text-indigo-600 dark:text-indigo-400">케이스랩 (정규직 1개월)</strong> - HTML, CSS, JS, jQuery, PHP, Vue를 통한 웹페이지 개선</li>
+              <li><strong className="text-indigo-600 dark:text-indigo-400">itso (인턴 1개월)</strong> - HTML, CSS, JS,
+                jQuery 활용
+              </li>
+              <li><strong className="text-indigo-600 dark:text-indigo-400">모든세븐 (정규직 6개월)</strong> - HTML, CSS, JS,
+                jQuery, MySQL, PHP 기반 웹사이트 개발
+              </li>
+              <li><strong className="text-indigo-600 dark:text-indigo-400">케이스랩 (정규직 1개월)</strong> - HTML, CSS, JS,
+                jQuery, PHP, Vue를 통한 웹페이지 개선
+              </li>
             </ul>
 
             <h3 className="text-3xl font-semibold mb-6">기술 스택</h3>
             <div className="space-y-6 text-lg">
-              <p><strong className="text-indigo-600 dark:text-indigo-400">프론트엔드:</strong> HTML, CSS, SCSS, JavaScript, TypeScript, React, Next.js, Tailwind,
+              <p><strong className="text-indigo-600 dark:text-indigo-400">프론트엔드:</strong> HTML, CSS, SCSS, JavaScript,
+                TypeScript, React, Next.js, Tailwind,
                 Styled-Components, Three.js</p>
               <p><strong className="text-indigo-600 dark:text-indigo-400">백엔드:</strong> Java, Python, PHP</p>
               <p><strong className="text-indigo-600 dark:text-indigo-400">데이터베이스:</strong> MySQL, Oracle, PostgreSQL</p>
-              <p><strong className="text-indigo-600 dark:text-indigo-400">도구:</strong> Git, GitHub, VS Code, IntelliJ, Webpack, Notion, Slack, Supabase, AWS</p>
+              <p><strong className="text-indigo-600 dark:text-indigo-400">도구:</strong> Git, GitHub, VS Code, IntelliJ,
+                Webpack, Notion, Slack, Supabase, AWS</p>
             </div>
           </div>
         </section>
@@ -195,10 +204,10 @@ export default function Page() {
         <section id="projects" className="max-w-7xl mx-auto py-32 px-4">
           <motion.h2
             className="text-5xl font-bold mb-12 text-center"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            initial={{opacity: 0, y: 50}}
+            whileInView={{opacity: 1, y: 0}}
+            viewport={{once: true}}
+            transition={{duration: 0.7}}
           >
             프로젝트
           </motion.h2>
@@ -206,12 +215,12 @@ export default function Page() {
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{once: true}}
             variants={{
-              hidden: { opacity: 0 },
+              hidden: {opacity: 0},
               visible: {
                 opacity: 1,
-                transition: { staggerChildren: 0.1 }
+                transition: {staggerChildren: 0.1}
               }
             }}
           >
@@ -220,8 +229,8 @@ export default function Page() {
                 key={i}
                 className="p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg flex flex-col items-start justify-between transform hover:scale-105 transition duration-300"
                 variants={{
-                  hidden: { opacity: 0, y: 50 },
-                  visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 50 } }
+                  hidden: {opacity: 0, y: 50},
+                  visible: {opacity: 1, y: 0, transition: {type: 'spring', stiffness: 50}}
                 }}
               >
                 <h3 className="font-bold text-xl mb-4">{project.name}</h3>
@@ -236,53 +245,61 @@ export default function Page() {
           </motion.div>
         </section>
 
-        <section id="contact" className="max-w-7xl mx-auto py-32 px-4">
+        <section id="contact" className="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8">
           <motion.h2
-            className="text-5xl font-bold mb-12 text-center"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            className="text-4xl sm:text-5xl font-bold mb-8 text-center"
+            initial={{opacity: 0, y: 50}}
+            whileInView={{opacity: 1, y: 0}}
+            viewport={{once: true}}
+            transition={{duration: 0.7}}
           >
             Contact
           </motion.h2>
           <motion.p
-            className="mb-8 text-xl text-center"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            className="mb-12 text-lg sm:text-xl text-center text-gray-600 dark:text-gray-300"
+            initial={{opacity: 0, y: 50}}
+            whileInView={{opacity: 1, y: 0}}
+            viewport={{once: true}}
+            transition={{duration: 0.7, delay: 0.2}}
           >
             아래 폼을 통해 언제든지 문의하실 수 있습니다.
           </motion.p>
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 mb-8">
-            <ContactForm />
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 sm:p-10 mb-12">
+            <ContactForm/>
           </div>
 
-          {/* 소셜 링크: GitHub, Velog, LinkedIn (아이콘) */}
-          <div className="text-center space-x-4 mt-12">
-            <a href="https://github.com/wdohoon" target="_blank" rel="noopener noreferrer"
-               className="inline-block px-6 py-3 bg-gray-800 text-white dark:bg-gray-200 dark:text-gray-800 rounded-full hover:bg-gray-700 dark:hover:bg-gray-300 transition text-sm font-semibold">
-              {/* GitHub 아이콘 */}
-              <svg className="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 .3C5.36.3 0 5.66 0 12.25c0 5.27 3.43 9.73 8.2..."/>
-              </svg>
+          {/* Social links: GitHub, Velog, LinkedIn (icons) */}
+          <div className="flex justify-center space-x-4 mt-12">
+            <a
+              href="https://github.com/wdohoon"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-4 py-2 bg-gray-800 text-white dark:bg-gray-200 dark:text-gray-800 rounded-full hover:bg-gray-700 dark:hover:bg-gray-300 transition text-sm font-medium"
+            >
+              <Github className="w-5 h-5 mr-2"/>
               GitHub
             </a>
-            <a href="https://velog.io/@wdohoon/posts" target="_blank" rel="noopener noreferrer"
-               className="inline-block px-6 py-3 bg-green-600 text-white dark:bg-green-500 rounded-full hover:bg-green-700 dark:hover:bg-green-400 transition text-sm font-semibold">
-              {/* Velog 아이콘 (단순 V 형태) */}
-              <svg className="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M4 4l8 16 8-16H4z"/>
+            <a
+              href="https://velog.io/@wdohoon/posts"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-4 py-2 bg-green-600 text-white dark:bg-green-500 rounded-full hover:bg-green-700 dark:hover:bg-green-400 transition text-sm font-medium"
+            >
+              <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M3 19.0002V5.00024C3 3.89567 3.89543 3.00024 5 3.00024H19C20.1046 3.00024 21 3.89567 21 5.00024V19.0002C21 20.1048 20.1046 21.0002 19 21.0002H5C3.89543 21.0002 3 20.1048 3 19.0002Z"/>
+                <path d="M7.5 8.00024L12 16.0002L16.5 8.00024" stroke="white" strokeWidth="2" strokeLinecap="round"
+                      strokeLinejoin="round"/>
               </svg>
               Velog
             </a>
-            <a href="https://www.linkedin.com/in/%EB%8F%84%ED%9B%88-%EC%9B%90-313000341/" target="_blank" rel="noopener noreferrer"
-               className="inline-block px-6 py-3 bg-blue-600 text-white dark:bg-blue-500 rounded-full hover:bg-blue-700 dark:hover:bg-blue-400 transition text-sm font-semibold">
-              {/* LinkedIn 아이콘 */}
-              <svg className="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 448 512" aria-hidden="true">
-                <path d="M100.28 448H7.4V149.4h92.88zM53.79..."/>
-              </svg>
+            <a
+              href="https://www.linkedin.com/in/%EB%8F%84%ED%9B%88-%EC%9B%90-313000341/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-4 py-2 bg-blue-600 text-white dark:bg-blue-500 rounded-full hover:bg-blue-700 dark:hover:bg-blue-400 transition text-sm font-medium"
+            >
+              <Linkedin className="w-5 h-5 mr-2"/>
               LinkedIn
             </a>
           </div>
@@ -292,23 +309,23 @@ export default function Page() {
           {selectedProject && (
             <motion.div
               className="fixed inset-0 z-50 flex items-center justify-center bg-black/70"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              initial={{opacity: 0}}
+              animate={{opacity: 1}}
+              exit={{opacity: 0}}
             >
               <motion.div
                 className="bg-white dark:bg-gray-800 p-8 rounded-lg w-full max-w-md relative"
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.8, opacity: 0 }}
-                transition={{ type: 'spring', stiffness: 100 }}
+                initial={{scale: 0.8, opacity: 0}}
+                animate={{scale: 1, opacity: 1}}
+                exit={{scale: 0.8, opacity: 0}}
+                transition={{type: 'spring', stiffness: 100}}
               >
                 <button
                   onClick={() => setSelectedProject(null)}
                   className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"/>
                   </svg>
                 </button>
                 <h3 className="text-3xl font-bold mb-6">{selectedProject.name}</h3>
@@ -317,14 +334,17 @@ export default function Page() {
                   {selectedProject.github && (
                     <a href={selectedProject.github} target="_blank" rel="noopener noreferrer"
                        className="px-6 py-3 bg-gray-800 text-white dark:bg-gray-200 dark:text-gray-800 rounded-full hover:bg-gray-700 dark:hover:bg-gray-300 transition text-sm font-semibold flex items-center">
-                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3C5.36.3 ..."/></svg>
+                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 .3C5.36.3 ..."/>
+                      </svg>
                       GitHub
                     </a>
                   )}
                   {selectedProject.live && (
                     <a href={selectedProject.live} target="_blank" rel="noopener noreferrer"
                        className="px-6 py-3 bg-indigo-600 text-white dark:bg-indigo-500 rounded-full hover:bg-indigo-700 dark:hover:bg-indigo-600 transition text-sm font-semibold flex items-center">
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" strokeWidth={2}
+                           viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6..."/>
                       </svg>
                       사이트 방문
