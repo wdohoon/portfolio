@@ -7,7 +7,16 @@ import { motion, AnimatePresence, useInView } from 'framer-motion'
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
 import * as THREE from 'three'
 import ContactForm from '@/components/ContactForm'
-import { Github, Linkedin, ExternalLink } from 'lucide-react'
+import { Github, Linkedin } from 'lucide-react'
+
+// Velog 아이콘 (간단히 'V'로 표시)
+function VelogIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+      <path d="M4 4l8 16 8-16H4z"/>
+    </svg>
+  );
+}
 
 function RotatingBox() {
   const ref = useRef<THREE.Mesh>(null)
@@ -49,62 +58,62 @@ const projects: Project[] = [
     name: "Movie DH",
     github: "https://github.com/wdohoon/Movie",
     live: "https://glittering-torrone-89e130.netlify.app/",
-    description: "React 기반으로 영화 API를 연동하여 제작한 영화 정보 사이트로, Netlify에 배포되었습니다."
+    description: "React 기반으로 영화 API를 연동한 영화 정보 사이트, Netlify 배포."
   },
   {
     name: "이루다몰(클래시스몰)",
     live: "https://classysshop.com/",
-    description: "회사 재직 중 제작한 상업용 사이트입니다."
+    description: "회사 재직 중 제작한 상업용 사이트."
   },
   {
     name: "TeamHope",
     live: "http://www.teamhope.co.kr/",
-    description: "회사에서 제작한 기업용 사이트입니다."
+    description: "회사에서 제작한 기업용 사이트."
   },
   {
     name: "Bhidex",
     live: "https://bhidex.gabia.io/",
-    description: "회사 프로젝트로 진행한 전문 사이트 개발 경험이 있습니다."
+    description: "전문 사이트 개발 경험."
   },
   {
     name: "사주보궁",
     live: "http://saju79.net/",
-    description: "사주/운세 서비스를 제공하는 사이트로 회사에서 개발했습니다."
+    description: "사주/운세 서비스 사이트."
   },
   {
     name: "마더스 제약",
     live: "http://www.mtspharm.co.kr/",
-    description: "회사 재직 중 제약 관련 사이트를 구축했습니다."
+    description: "제약 관련 사이트 구축."
   },
   {
     name: "한식세끼",
     live: "https://xn--h10b903achbe83b.com/",
-    description: "한국 음식 관련 상업 사이트를 회사에서 제작했습니다."
+    description: "한국 음식 관련 상업 사이트."
   },
   {
     name: "Moden7ai",
     live: "http://moden7ai.com",
-    description: "회사 홍보 서비스를 제공하는 프로젝트를 회사에서 진행했습니다."
+    description: "회사 홍보 서비스 프로젝트."
   },
   {
     name: "Kidb",
     live: "https://www.kidb.com/",
-    description: "기업 정보 관련 회사 프로젝트를 수행했습니다."
+    description: "기업 정보 관련 프로젝트."
   },
   {
     name: "종로학원",
     live: "https://www.jongro.co.kr/",
-    description: "회사에서 유지보수를 담당하며 기능 개선 및 업데이트를 진행했습니다."
+    description: "유지보수 및 기능 개선."
   },
   {
     name: "셀트리온",
     live: "https://www.celltrion.com",
-    description: "바이오테크 기업 셀트리온 웹사이트 유지보수 및 업데이트에 참여했습니다."
+    description: "바이오테크 기업 웹사이트 유지보수."
   },
   {
     name: "Kacelab 포트폴리오",
     live: "https://www.kacelab.com/Work.php",
-    description: "Kacelab 포트폴리오 내 Asen Loxsa, Kia Cpo, Jungmin Tax, ArtData, Bank X Planplanet 섹션 작업에 참여했습니다."
+    description: "Kacelab 포트폴리오 섹션 작업."
   },
 ];
 
@@ -123,7 +132,6 @@ export default function Page() {
           id="hero"
           className="w-full h-screen relative flex flex-col items-center justify-center bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e]"
         >
-          {/* 3D Canvas Background */}
           <Canvas className="absolute inset-0 !h-1/2">
             <ambientLight intensity={0.5}/>
             <directionalLight position={[2, 5, 5]}/>
@@ -165,42 +173,64 @@ export default function Page() {
           </div>
         </section>
 
-        {/* About 섹션 */}
-        <section id="about" className="max-w-7xl mx-auto py-32 px-4">
-          <h2 className="text-5xl font-bold mb-12 text-center">소개</h2>
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8">
+        {/* Wave Divider */}
+        <div className="relative -mt-1">
+          <svg className="w-full h-16 text-gray-50 dark:text-gray-900 rotate-180" preserveAspectRatio="none" viewBox="0 0 1440 320">
+            <path fill="currentColor" d="M0,288L80,272C160,256,320,224,480,224C640,224,800,256,960,256C1120,256,1280,224,1360,208L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+          </svg>
+        </div>
+
+        {/* About Section */}
+        <section id="about" className="max-w-7xl mx-auto py-20 px-4">
+          <h2 className="text-5xl font-bold mb-12 text-center">About</h2>
+          <div className="bg-gradient-to-tr from-white via-gray-100 to-white dark:from-gray-800 dark:to-gray-900 dark:via-gray-700 rounded-lg p-10 shadow-lg">
             <p className="text-xl leading-relaxed mb-10">
               저는 프론트엔드 개발자로서 다양한 웹 환경에서 사용자에게 즐거운 경험을 제공하고자 합니다.
               HTML, CSS, JavaScript, jQuery 기반으로 시작해, React, Next.js, Three.js 등으로 확장하며
               시각적이고 몰입감 있는 인터페이스를 구현합니다.
             </p>
-            <h3 className="text-3xl font-semibold mb-6">경력</h3>
-            <ul className="list-disc list-inside mb-10 text-lg space-y-2">
-              <li><strong className="text-indigo-600 dark:text-indigo-400">itso (인턴 1개월)</strong> - HTML, CSS, JS,
-                jQuery 활용
-              </li>
-              <li><strong className="text-indigo-600 dark:text-indigo-400">모든세븐 (정규직 6개월)</strong> - HTML, CSS, JS,
-                jQuery, MySQL, PHP 기반 웹사이트 개발
-              </li>
-              <li><strong className="text-indigo-600 dark:text-indigo-400">케이스랩 (정규직 1개월)</strong> - HTML, CSS, JS,
-                jQuery, PHP, Vue를 통한 웹페이지 개선
-              </li>
-            </ul>
-
-            <h3 className="text-3xl font-semibold mb-6">기술 스택</h3>
-            <div className="space-y-6 text-lg">
-              <p><strong className="text-indigo-600 dark:text-indigo-400">프론트엔드:</strong> HTML, CSS, SCSS, JavaScript,
-                TypeScript, React, Next.js, Tailwind,
-                Styled-Components, Three.js</p>
-              <p><strong className="text-indigo-600 dark:text-indigo-400">��엔드:</strong> Java, Python, PHP</p>
-              <p><strong className="text-indigo-600 dark:text-indigo-400">데이터베이스:</strong> MySQL, Oracle, PostgreSQL</p>
-              <p><strong className="text-indigo-600 dark:text-indigo-400">도구:</strong> Git, GitHub, VS Code, IntelliJ,
-                Webpack, Notion, Slack, Supabase, AWS</p>
-            </div>
           </div>
         </section>
 
-        {/* Projects 섹션 */}
+        {/* Experience Section */}
+        <section id="experience" className="max-w-7xl mx-auto py-20 px-4">
+          <h2 className="text-5xl font-bold mb-12 text-center">Experience</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { company: 'itso', period: '인턴 1개월', tech: 'HTML, CSS, JS, jQuery' },
+              { company: '모든세븐', period: '정규직 6개월', tech: 'HTML, CSS, JS, jQuery, MySQL, PHP' },
+              { company: '케이스랩', period: '정규직 1개월', tech: 'HTML, CSS, JS, jQuery, PHP, Vue' }
+            ].map((exp, i) => (
+              <motion.div
+                key={i}
+                className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 hover:shadow-xl transform hover:-translate-y-2 transition"
+                whileHover={{ scale: 1.05 }}
+              >
+                <h3 className="text-2xl font-semibold mb-2 text-indigo-600 dark:text-indigo-400">{exp.company}</h3>
+                <p className="text-lg mb-2">{exp.period}</p>
+                <p className="text-gray-700 dark:text-gray-300">{exp.tech}</p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Skills Section */}
+        <section id="skills" className="max-w-7xl mx-auto py-20 px-4">
+          <h2 className="text-5xl font-bold mb-12 text-center">Skills</h2>
+          <div className="flex flex-wrap gap-4 justify-center">
+            {['HTML','CSS','SCSS','JavaScript','TypeScript','React','Next.js','Tailwind','Styled-Components','Three.js','Java','Python','PHP','MySQL','Oracle','PostgreSQL','Git','GitHub','VS Code','IntelliJ','Webpack','Notion','Slack','Supabase','AWS'].map((skill, i) => (
+              <motion.span
+                key={i}
+                className="px-3 py-1 text-sm font-semibold bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-full shadow-sm hover:shadow-md hover:bg-indigo-100 hover:dark:bg-indigo-800 transition transform hover:scale-105"
+                whileHover={{ scale: 1.1 }}
+              >
+                {skill}
+              </motion.span>
+            ))}
+          </div>
+        </section>
+
+        {/* Projects Section */}
         <section id="projects" className="max-w-7xl mx-auto py-32 px-4">
           <motion.h2
             className="text-5xl font-bold mb-12 text-center"
@@ -209,7 +239,7 @@ export default function Page() {
             viewport={{once: true}}
             transition={{duration: 0.7}}
           >
-            프로젝트
+            Projects
           </motion.h2>
           <motion.div
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
@@ -268,7 +298,6 @@ export default function Page() {
             <ContactForm/>
           </div>
 
-          {/* Social links: GitHub, Velog, LinkedIn (icons) */}
           <div className="flex justify-center space-x-4 mt-12">
             <a
               href="https://github.com/wdohoon"
@@ -285,12 +314,7 @@ export default function Page() {
               rel="noopener noreferrer"
               className="inline-flex items-center px-4 py-2 bg-green-600 text-white dark:bg-green-500 rounded-full hover:bg-green-700 dark:hover:bg-green-400 transition text-sm font-medium"
             >
-              <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M3 19.0002V5.00024C3 3.89567 3.89543 3.00024 5 3.00024H19C20.1046 3.00024 21 3.89567 21 5.00024V19.0002C21 20.1048 20.1046 21.0002 19 21.0002H5C3.89543 21.0002 3 20.1048 3 19.0002Z"/>
-                <path d="M7.5 8.00024L12 16.0002L16.5 8.00024" stroke="white" strokeWidth="2" strokeLinecap="round"
-                      strokeLinejoin="round"/>
-              </svg>
+              <VelogIcon className="w-5 h-5 mr-2"/>
               Velog
             </a>
             <a
@@ -341,7 +365,9 @@ export default function Page() {
                   {selectedProject.live && (
                     <a href={selectedProject.live} target="_blank" rel="noopener noreferrer"
                        className="px-6 py-3 bg-indigo-600 text-white dark:bg-indigo-500 rounded-full hover:bg-indigo-700 dark:hover:bg-indigo-600 transition text-sm font-semibold flex items-center">
-                      <ExternalLink className="w-5 h-5 mr-2" />
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6..."/>
+                      </svg>
                       사이트 방문
                     </a>
                   )}
@@ -350,9 +376,7 @@ export default function Page() {
             </motion.div>
           )}
         </AnimatePresence>
-
       </div>
     </ParallaxProvider>
   )
 }
-
