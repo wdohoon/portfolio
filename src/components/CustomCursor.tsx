@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
-import { MousePointer } from 'lucide-react';
 
 export default function CustomCursor() {
   const [mouseX, setMouseX] = useState(0);
@@ -60,8 +59,7 @@ export default function CustomCursor() {
     };
   }, []);
 
-  const iconSize = isHovered ? 30 : 22;
-  const iconColor = isDarkMode
+  const cursorColor = isDarkMode
     ? (isHovered ? '#ffffff' : '#aaaaaa')
     : (isHovered ? '#000000' : '#555555');
 
@@ -73,19 +71,47 @@ export default function CustomCursor() {
         y: cursorYSpring,
         translateX: '-50%',
         translateY: '-50%',
-        transition: 'color 0.2s, transform 0.2s',
       }}
     >
       <motion.div
         style={{
           scale: isHovered ? 1.2 : 1,
-          originX: 0.5,
-          originY: 0.5,
+          rotate: isHovered ? 45 : 0,
         }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       >
-        <MousePointer width={iconSize} height={iconSize} color={iconColor} />
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <motion.circle
+            cx="20"
+            cy="20"
+            r="8"
+            stroke={cursorColor}
+            strokeWidth="2"
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          />
+          <motion.path
+            d="M20 12L20 28M12 20L28 20"
+            stroke={cursorColor}
+            strokeWidth="2"
+            strokeLinecap="round"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          />
+          <motion.path
+            d="M14 14L26 26M14 26L26 14"
+            stroke={cursorColor}
+            strokeWidth="2"
+            strokeLinecap="round"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: isHovered ? 1 : 0 }}
+            transition={{ duration: 0.3 }}
+          />
+        </svg>
       </motion.div>
     </motion.div>
   );
 }
+
