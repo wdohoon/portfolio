@@ -117,18 +117,69 @@ const projects: Project[] = [
   },
 ];
 
+interface Skill {
+  name: string;
+  proficiency: number; // 0 to 100
+}
+
+interface SkillCategory {
+  name: string;
+  skills: Skill[];
+}
+
+const skillCategories: SkillCategory[] = [
+  {
+    name: 'Frontend',
+    skills: [
+      { name: 'HTML', proficiency: 95 },
+      { name: 'CSS', proficiency: 95 },
+      { name: 'SCSS', proficiency: 90 },
+      { name: 'JavaScript', proficiency: 90 },
+      { name: 'TypeScript', proficiency: 80 },
+      { name: 'React', proficiency: 90 },
+      { name: 'Next.js', proficiency: 80 },
+      { name: 'Tailwind', proficiency: 90 },
+      { name: 'Styled-Components', proficiency: 70 },
+    ],
+  },
+  {
+    name: 'Backend',
+    skills: [
+      { name: 'Java', proficiency: 50 },
+      { name: 'Python', proficiency: 50 },
+      { name: 'PHP', proficiency: 65 },
+    ],
+  },
+  {
+    name: 'Database',
+    skills: [
+      { name: 'MySQL', proficiency: 80 },
+      { name: 'Oracle', proficiency: 70 },
+      { name: 'PostgreSQL', proficiency: 70 },
+    ],
+  },
+  {
+    name: 'Tools',
+    skills: [
+      { name: 'Git', proficiency: 85 },
+      { name: 'GitHub', proficiency: 85 },
+      { name: 'VS Code', proficiency: 90 },
+      { name: 'IntelliJ', proficiency: 95 },
+      { name: 'Webpack', proficiency: 70 },
+      { name: 'Notion', proficiency: 85 },
+      { name: 'Slack', proficiency: 90 },
+      { name: 'Supabase', proficiency: 70 },
+      { name: 'AWS', proficiency: 50 },
+    ],
+  },
+];
+
 export default function Page() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const heroRef = useRef(null)
   const heroInView = useInView(heroRef, { once: true })
 
-  // 스킬 섹션 탭: 'frontend', 'backend', 'database', 'tools'
-  const [activeSkillTab, setActiveSkillTab] = useState<'frontend' | 'backend' | 'database' | 'tools'>('frontend');
-
-  const frontendSkills = ['HTML','CSS','SCSS','JavaScript','TypeScript','React','Next.js','Tailwind','Styled-Components'];
-  const backendSkills = ['Java','Python','PHP'];
-  const dbSkills = ['MySQL','Oracle','PostgreSQL'];
-  const toolSkills = ['Git','GitHub','VS Code','IntelliJ','Webpack','Notion','Slack','Supabase','AWS'];
+  const [activeCategory, setActiveCategory] = useState(skillCategories[0].name);
 
   return (
     <ParallaxProvider>
@@ -183,15 +234,18 @@ export default function Page() {
 
         {/* Wave Divider */}
         <div className="relative -mt-1">
-          <svg className="w-full h-16 text-gray-50 dark:text-gray-900 rotate-180" preserveAspectRatio="none" viewBox="0 0 1440 320">
-            <path fill="currentColor" d="M0,288L80,272C160,256,320,224,480,224C640,224,800,256,960,256C1120,256,1280,224,1360,208L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+          <svg className="w-full h-16 text-gray-50 dark:text-gray-900 rotate-180" preserveAspectRatio="none"
+               viewBox="0 0 1440 320">
+            <path fill="currentColor"
+                  d="M0,288L80,272C160,256,320,224,480,224C640,224,800,256,960,256C1120,256,1280,224,1360,208L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
           </svg>
         </div>
 
         {/* About Section */}
         <section id="about" className="max-w-7xl mx-auto py-20 px-4">
           <h2 className="text-5xl font-bold mb-12 text-center">About</h2>
-          <div className="bg-gradient-to-tr from-white via-gray-100 to-white dark:from-gray-800 dark:to-gray-900 dark:via-gray-700 rounded-lg p-10 shadow-lg">
+          <div
+            className="bg-gradient-to-tr from-white via-gray-100 to-white dark:from-gray-800 dark:to-gray-900 dark:via-gray-700 rounded-lg p-10 shadow-lg">
             <p className="text-xl leading-relaxed mb-10">
               저는 프론트엔드 개발자로서 다양한 웹 환경에서 사용자에게 매끄러운 경험을 제공하는 데에 열정을 가지고 있습니다.
               JavaScript와 React를 기반으로 프로젝트를 수행해왔으며, Next.js를 통해 서버사이드 렌더링과 최적화를 더욱 강화했습니다.
@@ -205,14 +259,14 @@ export default function Page() {
           <h2 className="text-5xl font-bold mb-12 text-center">Experience</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { company: 'itso', period: '인턴 1개월', tech: 'HTML, CSS, JS, jQuery' },
-              { company: '모든세븐', period: '정규직 6개월', tech: 'HTML, CSS, JS, jQuery, MySQL, PHP' },
-              { company: '케이스랩', period: '정규직 1개월', tech: 'HTML, CSS, JS, jQuery, PHP, Vue' }
+              {company: 'itso', period: '인턴 1개월', tech: 'HTML, CSS, JS, jQuery'},
+              {company: '모든세븐', period: '정규직 6개월', tech: 'HTML, CSS, JS, jQuery, MySQL, PHP'},
+              {company: '케이스랩', period: '정규직 1개월', tech: 'HTML, CSS, JS, jQuery, PHP, Vue'}
             ].map((exp, i) => (
               <motion.div
                 key={i}
                 className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 hover:shadow-xl transform hover:-translate-y-2 transition"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{scale: 1.05}}
               >
                 <h3 className="text-2xl font-semibold mb-2 text-indigo-600 dark:text-indigo-400">{exp.company}</h3>
                 <p className="text-lg mb-2">{exp.period}</p>
@@ -225,96 +279,63 @@ export default function Page() {
         {/* Skills Section */}
         <section id="skills" className="max-w-7xl mx-auto py-20 px-4">
           <h2 className="text-5xl font-bold mb-12 text-center">Skills</h2>
-          {/* 탭 버튼들 */}
-          <div className="flex justify-center space-x-4 mb-8">
-            <button
-              className={`px-4 py-2 rounded-full font-semibold transition ${
-                activeSkillTab === 'frontend'
-                  ? 'bg-indigo-600 text-white'
-                  : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-indigo-100 hover:dark:bg-indigo-800'
-              }`}
-              onClick={() => setActiveSkillTab('frontend')}
-            >
-              Frontend
-            </button>
-            <button
-              className={`px-4 py-2 rounded-full font-semibold transition ${
-                activeSkillTab === 'backend'
-                  ? 'bg-indigo-600 text-white'
-                  : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-indigo-100 hover:dark:bg-indigo-800'
-              }`}
-              onClick={() => setActiveSkillTab('backend')}
-            >
-              Backend
-            </button>
-            <button
-              className={`px-4 py-2 rounded-full font-semibold transition ${
-                activeSkillTab === 'database'
-                  ? 'bg-indigo-600 text-white'
-                  : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-indigo-100 hover:dark:bg-indigo-800'
-              }`}
-              onClick={() => setActiveSkillTab('database')}
-            >
-              Database
-            </button>
-            <button
-              className={`px-4 py-2 rounded-full font-semibold transition ${
-                activeSkillTab === 'tools'
-                  ? 'bg-indigo-600 text-white'
-                  : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-indigo-100 hover:dark:bg-indigo-800'
-              }`}
-              onClick={() => setActiveSkillTab('tools')}
-            >
-              Tools
-            </button>
-          </div>
+          <div className="flex flex-col md:flex-row gap-8">
+            {/* Categories */}
+            <div className="md:w-1/4">
+              {skillCategories.map((category) => (
+                <motion.button
+                  key={category.name}
+                  className={`w-full text-left px-4 py-3 rounded-lg mb-2 font-semibold transition ${
+                    activeCategory === category.name
+                      ? 'bg-indigo-600 text-white'
+                      : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-indigo-100 hover:dark:bg-indigo-800'
+                  }`}
+                  onClick={() => setActiveCategory(category.name)}
+                  whileHover={{scale: 1.05}}
+                  whileTap={{scale: 0.95}}
+                >
+                  {category.name}
+                </motion.button>
+              ))}
+            </div>
 
-          {/* 탭별 콘텐츠 */}
-          <div className="flex flex-wrap gap-4 justify-center">
-            {activeSkillTab === 'frontend' && (
-              ['HTML','CSS','SCSS','JavaScript','TypeScript','React','Next.js','Tailwind','Styled-Components'].map((skill, i) => (
-                <motion.span
-                  key={i}
-                  className="px-3 py-1 text-sm font-semibold bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-full shadow-sm hover:shadow-md hover:bg-indigo-100 hover:dark:bg-indigo-800 transition transform hover:scale-105"
-                  whileHover={{ scale: 1.1 }}
+            {/* Skills */}
+            <div className="md:w-3/4">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeCategory}
+                  initial={{opacity: 0, y: 20}}
+                  animate={{opacity: 1, y: 0}}
+                  exit={{opacity: 0, y: -20}}
+                  transition={{duration: 0.3}}
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-4"
                 >
-                  {skill}
-                </motion.span>
-              ))
-            )}
-            {activeSkillTab === 'backend' && (
-              ['Java','Python','PHP'].map((skill, i) => (
-                <motion.span
-                  key={i}
-                  className="px-3 py-1 text-sm font-semibold bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-full shadow-sm hover:shadow-md hover:bg-indigo-100 hover:dark:bg-indigo-800 transition transform hover:scale-105"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  {skill}
-                </motion.span>
-              ))
-            )}
-            {activeSkillTab === 'database' && (
-              ['MySQL','Oracle','PostgreSQL'].map((skill, i) => (
-                <motion.span
-                  key={i}
-                  className="px-3 py-1 text-sm font-semibold bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-full shadow-sm hover:shadow-md hover:bg-indigo-100 hover:dark:bg-indigo-800 transition transform hover:scale-105"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  {skill}
-                </motion.span>
-              ))
-            )}
-            {activeSkillTab === 'tools' && (
-              ['Git','GitHub','VS Code','IntelliJ','Webpack','Notion','Slack','Supabase','AWS'].map((skill, i) => (
-                <motion.span
-                  key={i}
-                  className="px-3 py-1 text-sm font-semibold bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-full shadow-sm hover:shadow-md hover:bg-indigo-100 hover:dark:bg-indigo-800 transition transform hover:scale-105"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  {skill}
-                </motion.span>
-              ))
-            )}
+                  {skillCategories
+                    .find((category) => category.name === activeCategory)
+                    ?.skills.map((skill) => (
+                      <motion.div
+                        key={skill.name}
+                        className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-lg"
+                        whileHover={{scale: 1.05}}
+                        whileTap={{scale: 0.95}}
+                      >
+                        <h3 className="text-lg font-semibold mb-2">{skill.name}</h3>
+                        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                          <motion.div
+                            className="bg-indigo-600 h-2.5 rounded-full"
+                            initial={{width: 0}}
+                            animate={{width: `${skill.proficiency}%`}}
+                            transition={{duration: 1, delay: 0.2}}
+                          />
+                        </div>
+                        <p className="text-sm mt-2 text-gray-600 dark:text-gray-400">
+                          Proficiency: {skill.proficiency}%
+                        </p>
+                      </motion.div>
+                    ))}
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
         </section>
 
@@ -446,14 +467,15 @@ export default function Page() {
                   {selectedProject.github && (
                     <a href={selectedProject.github} target="_blank" rel="noopener noreferrer"
                        className="px-6 py-3 bg-gray-800 text-white dark:bg-gray-200 dark:text-gray-800 rounded-full hover:bg-gray-700 dark:hover:bg-gray-300 transition text-sm font-semibold flex items-center">
-                      <Github className="w-5 h-5 mr-2" />
+                      <Github className="w-5 h-5 mr-2"/>
                       GitHub
                     </a>
                   )}
                   {selectedProject.live && (
                     <a href={selectedProject.live} target="_blank" rel="noopener noreferrer"
                        className="px-6 py-3 bg-indigo-600 text-white dark:bg-indigo-500 rounded-full hover:bg-indigo-700 dark:hover:bg-indigo-600 transition text-sm font-semibold flex items-center">
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" strokeWidth={2}
+                           viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6..."/>
                       </svg>
                       사이트 방문
