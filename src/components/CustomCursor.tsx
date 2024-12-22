@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
 import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { MousePointer } from 'lucide-react';
 
 export default function CustomCursor() {
   const [mouseX, setMouseX] = useState(0);
@@ -42,20 +43,16 @@ export default function CustomCursor() {
     cursorY.set(mouseY);
   }, [mouseX, mouseY, cursorX, cursorY]);
 
-  // 다크모드 변화 감지
   useEffect(() => {
     const updateDarkMode = () => {
       setIsDarkMode(document.documentElement.classList.contains('dark'));
     };
 
-    // 초기 설정
     updateDarkMode();
 
-    // html 클래스 변화 감지
     const observer = new MutationObserver(() => {
       updateDarkMode();
     });
-
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
     return () => {
@@ -63,12 +60,10 @@ export default function CustomCursor() {
     };
   }, []);
 
-  // 모드와 hover 상태에 따른 색상 결정
-  const hoveredColor = isDarkMode ? 'rgba(255,255,255,0.8)' : 'rgba(0,0,0,0.8)';
-  const nonHoveredColor = isDarkMode ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.3)';
-
-  const backgroundColor = isHovered ? hoveredColor : nonHoveredColor;
-  const size = isHovered ? 36 : 20;
+  const iconSize = isHovered ? 30 : 22;
+  const iconColor = isDarkMode
+    ? (isHovered ? '#ffffff' : '#aaaaaa')
+    : (isHovered ? '#000000' : '#555555');
 
   return (
     <motion.div
@@ -78,18 +73,19 @@ export default function CustomCursor() {
         y: cursorYSpring,
         translateX: '-50%',
         translateY: '-50%',
-        width: `${size}px`,
-        height: `${size}px`,
-        borderRadius: '50%',
-        background: backgroundColor,
-        boxShadow: isHovered && isDarkMode
-          ? '0 0 10px rgba(255,255,255,0.5)'
-          : isHovered
-            ? '0 0 10px rgba(0,0,0,0.5)'
-            : 'none',
-        transition: 'background 0.2s, width 0.2s, height 0.2s, box-shadow 0.2s',
-        zIndex: '9999'
+        transition: 'color 0.2s, transform 0.2s',
       }}
-    />
+    >
+      <motion.div
+        style={{
+          scale: isHovered ? 1.2 : 1,
+          originX: 0.5,
+          originY: 0.5,
+        }}
+        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+      >
+        <MousePointer width={iconSize} height={iconSize} color={iconColor} />
+      </motion.div>
+    </motion.div>
   );
 }

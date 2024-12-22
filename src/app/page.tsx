@@ -7,7 +7,7 @@ import { motion, AnimatePresence, useInView } from 'framer-motion'
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
 import * as THREE from 'three'
 import ContactForm from '@/components/ContactForm'
-import { Github, Linkedin } from 'lucide-react'
+import { Github, Linkedin, ExternalLink } from 'lucide-react'
 
 // Velog 아이콘 (간단히 'V'로 표시)
 function VelogIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -474,10 +474,7 @@ export default function Page() {
                   {selectedProject.live && (
                     <a href={selectedProject.live} target="_blank" rel="noopener noreferrer"
                        className="px-6 py-3 bg-indigo-600 text-white dark:bg-indigo-500 rounded-full hover:bg-indigo-700 dark:hover:bg-indigo-600 transition text-sm font-semibold flex items-center">
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" strokeWidth={2}
-                           viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6..."/>
-                      </svg>
+                      <ExternalLink className="w-5 h-5 mr-2"/>
                       사이트 방문
                     </a>
                   )}
