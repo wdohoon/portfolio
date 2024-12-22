@@ -122,6 +122,14 @@ export default function Page() {
   const heroRef = useRef(null)
   const heroInView = useInView(heroRef, { once: true })
 
+  // 스킬 섹션 탭: 'frontend', 'backend', 'database', 'tools'
+  const [activeSkillTab, setActiveSkillTab] = useState<'frontend' | 'backend' | 'database' | 'tools'>('frontend');
+
+  const frontendSkills = ['HTML','CSS','SCSS','JavaScript','TypeScript','React','Next.js','Tailwind','Styled-Components'];
+  const backendSkills = ['Java','Python','PHP'];
+  const dbSkills = ['MySQL','Oracle','PostgreSQL'];
+  const toolSkills = ['Git','GitHub','VS Code','IntelliJ','Webpack','Notion','Slack','Supabase','AWS'];
+
   return (
     <ParallaxProvider>
       <div className="relative overflow-hidden bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
@@ -185,9 +193,9 @@ export default function Page() {
           <h2 className="text-5xl font-bold mb-12 text-center">About</h2>
           <div className="bg-gradient-to-tr from-white via-gray-100 to-white dark:from-gray-800 dark:to-gray-900 dark:via-gray-700 rounded-lg p-10 shadow-lg">
             <p className="text-xl leading-relaxed mb-10">
-              저는 프론트엔드 개발자로서 다양한 웹 환경에서 사용자에게 즐거운 경험을 제공하고자 합니다.
-              HTML, CSS, JavaScript, jQuery 기반으로 시작해, React, Next.js, Three.js 등으로 확장하며
-              시각적이고 몰입감 있는 인터페이스를 구현합니다.
+              저는 프론트엔드 개발자로서 다양한 웹 환경에서 사용자에게 매끄러운 경험을 제공하는 데에 열정을 가지고 있습니다.
+              JavaScript와 React를 기반으로 프로젝트를 수행해왔으며, Next.js를 통해 서버사이드 렌더링과 최적화를 더욱 강화했습니다.
+              탄탄한 기초와 꼼꼼한 디버깅 능력을 바탕으로 유지보수성과 확장성을 고려한 코드를 작성하고자 노력합니다.
             </p>
           </div>
         </section>
@@ -217,16 +225,96 @@ export default function Page() {
         {/* Skills Section */}
         <section id="skills" className="max-w-7xl mx-auto py-20 px-4">
           <h2 className="text-5xl font-bold mb-12 text-center">Skills</h2>
+          {/* 탭 버튼들 */}
+          <div className="flex justify-center space-x-4 mb-8">
+            <button
+              className={`px-4 py-2 rounded-full font-semibold transition ${
+                activeSkillTab === 'frontend'
+                  ? 'bg-indigo-600 text-white'
+                  : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-indigo-100 hover:dark:bg-indigo-800'
+              }`}
+              onClick={() => setActiveSkillTab('frontend')}
+            >
+              Frontend
+            </button>
+            <button
+              className={`px-4 py-2 rounded-full font-semibold transition ${
+                activeSkillTab === 'backend'
+                  ? 'bg-indigo-600 text-white'
+                  : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-indigo-100 hover:dark:bg-indigo-800'
+              }`}
+              onClick={() => setActiveSkillTab('backend')}
+            >
+              Backend
+            </button>
+            <button
+              className={`px-4 py-2 rounded-full font-semibold transition ${
+                activeSkillTab === 'database'
+                  ? 'bg-indigo-600 text-white'
+                  : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-indigo-100 hover:dark:bg-indigo-800'
+              }`}
+              onClick={() => setActiveSkillTab('database')}
+            >
+              Database
+            </button>
+            <button
+              className={`px-4 py-2 rounded-full font-semibold transition ${
+                activeSkillTab === 'tools'
+                  ? 'bg-indigo-600 text-white'
+                  : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-indigo-100 hover:dark:bg-indigo-800'
+              }`}
+              onClick={() => setActiveSkillTab('tools')}
+            >
+              Tools
+            </button>
+          </div>
+
+          {/* 탭별 콘텐츠 */}
           <div className="flex flex-wrap gap-4 justify-center">
-            {['HTML','CSS','SCSS','JavaScript','TypeScript','React','Next.js','Tailwind','Styled-Components','Three.js','Java','Python','PHP','MySQL','Oracle','PostgreSQL','Git','GitHub','VS Code','IntelliJ','Webpack','Notion','Slack','Supabase','AWS'].map((skill, i) => (
-              <motion.span
-                key={i}
-                className="px-3 py-1 text-sm font-semibold bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-full shadow-sm hover:shadow-md hover:bg-indigo-100 hover:dark:bg-indigo-800 transition transform hover:scale-105"
-                whileHover={{ scale: 1.1 }}
-              >
-                {skill}
-              </motion.span>
-            ))}
+            {activeSkillTab === 'frontend' && (
+              ['HTML','CSS','SCSS','JavaScript','TypeScript','React','Next.js','Tailwind','Styled-Components'].map((skill, i) => (
+                <motion.span
+                  key={i}
+                  className="px-3 py-1 text-sm font-semibold bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-full shadow-sm hover:shadow-md hover:bg-indigo-100 hover:dark:bg-indigo-800 transition transform hover:scale-105"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  {skill}
+                </motion.span>
+              ))
+            )}
+            {activeSkillTab === 'backend' && (
+              ['Java','Python','PHP'].map((skill, i) => (
+                <motion.span
+                  key={i}
+                  className="px-3 py-1 text-sm font-semibold bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-full shadow-sm hover:shadow-md hover:bg-indigo-100 hover:dark:bg-indigo-800 transition transform hover:scale-105"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  {skill}
+                </motion.span>
+              ))
+            )}
+            {activeSkillTab === 'database' && (
+              ['MySQL','Oracle','PostgreSQL'].map((skill, i) => (
+                <motion.span
+                  key={i}
+                  className="px-3 py-1 text-sm font-semibold bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-full shadow-sm hover:shadow-md hover:bg-indigo-100 hover:dark:bg-indigo-800 transition transform hover:scale-105"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  {skill}
+                </motion.span>
+              ))
+            )}
+            {activeSkillTab === 'tools' && (
+              ['Git','GitHub','VS Code','IntelliJ','Webpack','Notion','Slack','Supabase','AWS'].map((skill, i) => (
+                <motion.span
+                  key={i}
+                  className="px-3 py-1 text-sm font-semibold bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-full shadow-sm hover:shadow-md hover:bg-indigo-100 hover:dark:bg-indigo-800 transition transform hover:scale-105"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  {skill}
+                </motion.span>
+              ))
+            )}
           </div>
         </section>
 
