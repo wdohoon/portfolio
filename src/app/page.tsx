@@ -58,6 +58,13 @@ interface Project {
 // 프로젝트 목록
 const projects: Project[] = [
   {
+    name: "하루 끝",
+    github: "https://github.com/oz-EndOfDay/FE",
+    live: "https://www.endofday.store/",
+    description: "NEXT.JS 기반으로 제작한 일기장 프로젝트, Vercel 배포.",
+    techStack: ["NEXT.JS", "React", "TailwindCSS", "Vercel", "TypeScript", "Redux Toolkit", "React Query"]
+  },
+  {
     name: "Movie DH",
     github: "https://github.com/wdohoon/Movie",
     live: "https://glittering-torrone-89e130.netlify.app/",
