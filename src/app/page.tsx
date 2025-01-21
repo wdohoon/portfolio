@@ -72,6 +72,12 @@ const projects: Project[] = [
     techStack: ["React", "ContextAPI", "TailwindCSS", "Supabase", "JavaScript"]
   },
   {
+    name: "다움성형외과",
+    live: "https://www.dawoomps.com/",
+    description: "회사 재직 중 제작한 상업용 사이트.",
+    techStack: ["HTML", "CSS", "JavaScript", "jQuery", "MySQL", "PHP"]
+  },
+  {
     name: "이루다몰(클래시스몰)",
     live: "https://classysshop.com/",
     description: "회사 재직 중 제작한 상업용 사이트.",
