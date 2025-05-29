@@ -1,12 +1,6 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&color=0:FF5733,100:1C1C1C&height=300&section=header&text=Frontend%20Developer&fontSize=60&fontColor=FFFFFF&animation=fadeIn&desc=Welcome%20to%20Wondohoon's%20GitHub%20Profile&descAlignY=65&descAlign=50)
 
 <div align="center">
-  
-  <!-- Enhanced Typing SVG with better spacing and multiple lines -->
-  <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=4000&pause=1000&color=FF5733&center=true&vCenter=true&multiline=true&repeat=true&random=false&width=600&height=100&lines=프론트엔드+개발자+원도훈;Creative+Frontend+Developer;" alt="Typing SVG" />
-  </a>
-
   <!-- Animated Wave -->
   <img width="100%" src="https://raw.githubusercontent.com/wdohoon/wdohoon/output/wave.gif" />
 
@@ -59,17 +53,6 @@
 
 </div>
 </details>
-
-<!-- Enhanced GitHub Stats with Custom Design -->
-<h2 align="center">📊 GitHub Statistics</h2>
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=wdohoon&show_icons=true&theme=radical&hide_border=true&count_private=true&bg_color=0D1117&title_color=FF5733&icon_color=FF5733&text_color=FFFFFF&ring_color=FF5733" width="49%" alt="GitHub Stats"/>
-</div>
-
-<div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=wdohoon&custom_title=Wondohoon's%20GitHub%20Activity%20Graph&bg_color=0D1117&color=FF5733&line=FF5733&point=FFFFFF&area=true&hide_border=true" alt="Activity Graph" width="98%"/>
-</div>
 
 <!-- Enhanced GitAnimals Farm with Custom Border -->
 <div align="center">
