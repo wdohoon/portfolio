@@ -1,3 +1,43 @@
+# Portfolio
+
+This project is a personal portfolio site built with **Next.js** and **TypeScript**. It showcases projects and skills with smooth animations and a 3D hero section.
+
+## Features
+
+- Animated 3D elements using **three.js** via `@react-three/fiber`
+- Page transitions and interactive effects powered by **framer-motion**
+- Responsive design styled with **Tailwind CSS**
+- Dark mode toggle and custom cursor
+- Contact form that sends emails through EmailJS
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [framer-motion](https://www.framer.com/motion/)
+- [three.js](https://threejs.org/) with React Three Fiber
+
+## Getting Started
+
+Install dependencies and run the development server:
+
+```bash
+npm install
+npm run dev
+```
+
+The site will be available at `http://localhost:3000`.
+
+## Deployment
+
+Generate a production build with:
+
+```bash
+npm run build
+```
+
+You can then run `npm start` or deploy the `.next` output to services such as **Vercel**.
+
 ![header](https://capsule-render.vercel.app/api?type=waving&color=0:FF5733,100:1C1C1C&height=300&section=header&text=Frontend%20Developer&fontSize=60&fontColor=FFFFFF&animation=fadeIn&desc=Welcome%20to%20Wondohoon's%20GitHub%20Profile&descAlignY=65&descAlign=50)
 
 <div align="center">
@@ -73,6 +113,10 @@
     <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=Gmail&logoColor=white" alt="Gmail"/>
   </a>
 </div>
+
+## Local Development
+
+Copy `.env.example` to `.env` and replace the placeholder values with your actual EmailJS keys before running the app.
 
 <!-- Enhanced Footer -->
 ![footer](https://capsule-render.vercel.app/api?type=waving&color=0:1C1C1C,100:FF5733&height=200&section=footer&text=Thank%20you%20for%20visiting!&fontSize=24&fontColor=FFFFFF&animation=fadeIn)
