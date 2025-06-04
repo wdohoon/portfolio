@@ -74,5 +74,9 @@
   </a>
 </div>
 
+## Local Development
+
+Copy `.env.example` to `.env` and replace the placeholder values with your actual EmailJS keys before running the app.
+
 <!-- Enhanced Footer -->
 ![footer](https://capsule-render.vercel.app/api?type=waving&color=0:1C1C1C,100:FF5733&height=200&section=footer&text=Thank%20you%20for%20visiting!&fontSize=24&fontColor=FFFFFF&animation=fadeIn)
