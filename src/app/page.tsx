@@ -8,6 +8,9 @@ import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
 import * as THREE from 'three'
 import ContactForm from '@/components/ContactForm'
 import { Github, Linkedin, ExternalLink } from 'lucide-react'
+import dynamic from 'next/dynamic'
+const HeroParticles = dynamic(() => import('@/components/HeroParticles'), { ssr: false })
+import { projects, Project } from '@/data/projects'
 
 // Velog 아이콘 (간단히 'V'로 표시)
 function VelogIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -18,132 +21,9 @@ function VelogIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-// 회전하는 박스 컴포넌트
-function RotatingBox() {
-  const ref = useRef<THREE.Mesh>(null)
-  const [hue, setHue] = useState(0)
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setHue((prevHue) => (prevHue + 1) % 360)
-    }, 50)
-    return () => clearInterval(interval)
-  }, [])
 
-  useFrame(() => {
-    if (ref.current) {
-      ref.current.rotation.x += 0.003
-      ref.current.rotation.y += 0.003
-    }
-  })
-
-  const color = `hsl(${hue}, 100%, 50%)`
-  return (
-    <mesh ref={ref} position={[0, 0, 0]} scale={1.3}>
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.3} />
-    </mesh>
-  )
-}
-
-// 프로젝트 인터페이스
-interface Project {
-  name: string;
-  github?: string;
-  live?: string;
-  description?: string;
-  techStack: string[];
-}
-
-// 프로젝트 목록
-const projects: Project[] = [
-  {
-    name: "하루 끝",
-    github: "https://github.com/oz-EndOfDay/FE",
-    live: "https://www.endofday.store/",
-    description: "NEXT.JS 기반으로 제작한 일기장 프로젝트, Vercel 배포.",
-    techStack: ["NEXT.JS", "React", "TailwindCSS", "Vercel", "TypeScript", "Redux Toolkit", "React Query"]
-  },
-  {
-    name: "Movie DH",
-    github: "https://github.com/wdohoon/Movie",
-    live: "https://glittering-torrone-89e130.netlify.app/",
-    description: "React 기반으로 영화 API를 연동한 영화 정보 사이트, Netlify 배포.",
-    techStack: ["React", "ContextAPI", "TailwindCSS", "Supabase", "JavaScript"]
-  },
-  {
-    name: "다움성형외과",
-    live: "https://www.dawoomps.com/",
-    description: "회사 재직 중 제작한 상업용 사이트.",
-    techStack: ["HTML", "CSS", "JavaScript", "jQuery", "MySQL", "PHP"]
-  },
-  {
-    name: "이루다몰(클래시스몰)",
-    live: "https://classysshop.com/",
-    description: "회사 재직 중 제작한 상업용 사이트.",
-    techStack: ["HTML", "CSS", "JavaScript", "jQuery", "MySQL", "PHP", "Figma", "AJAX", "AWS"]
-  },
-  {
-    name: "TeamHope",
-    live: "http://www.teamhope.co.kr/",
-    description: "회사에서 제작한 기업용 사이트.",
-    techStack: ["HTML", "CSS", "JavaScript", "jQuery", "MySQL", "PHP", "Figma"]
-  },
-  {
-    name: "Bhidex",
-    live: "https://bhidex.gabia.io/",
-    description: "전문 사이트 개발 경험.",
-    techStack: ["HTML", "CSS", "JavaScript", "jQuery", "MySQL", "PHP", "Figma"]
-  },
-  {
-    name: "사주보궁",
-    live: "http://saju79.net/",
-    description: "사주/운세 서비스 사이트.",
-    techStack: ["HTML", "CSS", "JavaScript", "jQuery", "MySQL", "PHP", "Figma"]
-  },
-  {
-    name: "마더스 제약",
-    live: "http://www.mtspharm.co.kr/",
-    description: "제약 관련 사이트 구축.",
-    techStack: ["HTML", "CSS", "JavaScript", "jQuery", "MySQL", "PHP", "Figma"]
-  },
-  {
-    name: "한식세끼",
-    live: "https://xn--h10b903achbe83b.com/",
-    description: "한국 음식 관련 상업 사이트.",
-    techStack: ["HTML", "CSS", "JavaScript", "jQuery", "MySQL", "PHP", "Figma"]
-  },
-  {
-    name: "Moden7ai",
-    live: "http://moden7ai.com",
-    description: "회사 홍보 서비스 프로젝트.",
-    techStack: ["HTML", "CSS", "JavaScript", "jQuery", "MySQL", "PHP", "Figma"]
-  },
-  {
-    name: "Kidb",
-    live: "https://www.kidb.com/",
-    description: "기업 정보 관련 프로젝트.",
-    techStack: ["HTML", "CSS", "JavaScript", "jQuery", "MySQL", "PHP", "Figma"]
-  },
-  {
-    name: "종로학원",
-    live: "https://www.jongro.co.kr/",
-    description: "유지보수 및 기능 개선.",
-    techStack: ["HTML", "CSS", "JavaScript", "jQuery", "MySQL", "PHP", "Figma"]
-  },
-  {
-    name: "셀트리온",
-    live: "https://www.celltrion.com",
-    description: "바이오테크 기업 웹사이트 유지보수.",
-    techStack: ["HTML", "CSS", "JavaScript", "jQuery", "MySQL", "PHP", "Figma"]
-  },
-  {
-    name: "Kacelab 포트폴리오",
-    live: "https://www.kacelab.com/Work.php",
-    description: "Kacelab 포트폴리오 섹션 작업.",
-    techStack: ["HTML", "CSS", "JavaScript", "jQuery", "MySQL", "PHP", "Figma"]
-  },
-];
+// 프로젝트 인터페이스는 src/data/projects.ts에서 가져옵니다.
 
 // 스킬 인터페이스
 interface Skill {
@@ -221,12 +101,7 @@ export default function Page() {
           id="hero"
           className="w-full h-screen relative flex flex-col items-center justify-center bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e]"
         >
-          <Canvas className="absolute inset-0 !h-1/2">
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[2, 5, 5]} />
-            <RotatingBox />
-            <OrbitControls enablePan={false} enableZoom={false} enableRotate={false} />
-          </Canvas>
+          <HeroParticles />
 
           <Parallax speed={-10} className="absolute inset-0">
             <div className="w-full h-full bg-[url('/path/to/your/bg-pattern.png')] opacity-20" />
@@ -240,7 +115,7 @@ export default function Page() {
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              프론트엔드 개발자 원도훈입니다.
+              Frontend Developer 원도훈
             </motion.h1>
             <motion.p
               className="text-2xl mb-10 text-white/90"
@@ -259,6 +134,15 @@ export default function Page() {
             >
               프로젝트 보러가기
             </motion.a>
+            <motion.div
+              className="mt-12 flex justify-center"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </motion.div>
           </div>
         </section>
 
@@ -402,7 +286,7 @@ export default function Page() {
             {projects.map((project: Project, i: number) => (
               <motion.div
                 key={i}
-                className="p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg flex flex-col items-start justify-between transform hover:scale-105 transition duration-300"
+                className="p-6 bg-white/80 dark:bg-surface/80 backdrop-blur-xl shadow-lg rounded-lg flex flex-col items-start justify-between transform hover:scale-105 transition duration-300"
                 variants={{
                   hidden: { opacity: 0, y: 50 },
                   visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 50 } },

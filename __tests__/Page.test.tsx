@@ -29,7 +29,7 @@ beforeAll(() => {
 describe('Main page rendering', () => {
   it('renders hero section and canvas without crashing', () => {
     render(<Page />);
-    expect(screen.getByText('안녕하세요, 원도훈입니다.')).toBeInTheDocument();
+    expect(screen.getByText('Frontend Developer 원도훈')).toBeInTheDocument();
     expect(screen.getByTestId('canvas')).toBeInTheDocument();
   });
 });

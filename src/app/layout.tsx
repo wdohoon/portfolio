@@ -1,8 +1,11 @@
+"use client";
 import './globals.css'
 import { ReactNode } from 'react'
 import { Noto_Sans_KR } from 'next/font/google'
 import Header from '@/components/Header'
 import DarkModeToggle from "@/components/DarkModeToggle";
+import ScrollProgress from '@/components/ScrollProgress'
+import useLenis from '@/lib/useLenis'
 
 const notoSansKr = Noto_Sans_KR({
   subsets: ['latin'],
@@ -10,11 +13,25 @@ const notoSansKr = Noto_Sans_KR({
 })
 
 export const metadata = {
-  title: 'My Portfolio',
-  description: 'A showcase of my work and skills',
+  title: 'Frontend Developer 원도훈',
+  description: '원도훈의 포트폴리오',
+  openGraph: {
+    title: 'Frontend Developer 원도훈',
+    description: '원도훈의 포트폴리오',
+    url: 'https://example.com',
+    siteName: '원도훈 포트폴리오',
+    locale: 'ko_KR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Frontend Developer 원도훈',
+    description: '원도훈의 포트폴리오',
+  },
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  useLenis()
   const themeScript = `
     (function() {
       const savedTheme = localStorage.getItem('theme');
@@ -31,8 +48,20 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="ko" className={notoSansKr.className} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: '원도훈',
+              url: 'https://example.com',
+            }),
+          }}
+        />
       </head>
       <body className="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 relative overflow-x-hidden">
+        <ScrollProgress />
         <Header/>
         <main className="pt-16 min-h-screen">
           {children}
