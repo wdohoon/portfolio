@@ -3,6 +3,7 @@ import { ReactNode } from 'react'
 import { Noto_Sans_KR } from 'next/font/google'
 import Header from '@/components/Header'
 import DarkModeToggle from "@/components/DarkModeToggle";
+import SmoothScrolling from '@/components/SmoothScrolling';
 
 const notoSansKr = Noto_Sans_KR({
   subsets: ['latin'],
@@ -31,8 +32,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="ko" className={notoSansKr.className} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <link rel="preload" href="/fonts/GeistVF.woff" as="font" type="font/woff" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/GeistMonoVF.woff" as="font" type="font/woff" crossOrigin="anonymous" />
       </head>
       <body className="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 relative overflow-x-hidden">
+        <SmoothScrolling />
         <Header/>
         <main className="pt-16 min-h-screen">
           {children}

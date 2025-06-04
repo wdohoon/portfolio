@@ -7,7 +7,8 @@ This project is a personal portfolio site built with **Next.js** and **TypeScrip
 - Animated 3D elements using **three.js** via `@react-three/fiber`
 - Page transitions and interactive effects powered by **framer-motion**
 - Responsive design styled with **Tailwind CSS**
-- Dark mode toggle and custom cursor
+- Dark mode toggle and smooth scrolling
+- Scroll progress indicator at the top of the page
 - Contact form that sends emails through EmailJS
 
 ## Tech Stack

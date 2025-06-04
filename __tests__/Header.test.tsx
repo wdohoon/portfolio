@@ -2,8 +2,6 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Header from '@/components/Header';
 
-jest.mock('@/components/CustomCursor', () => () => <div data-testid="cursor" />);
-
 describe('Header mobile menu', () => {
   it('toggles menu open and close via button', async () => {
     render(<Header />);

@@ -76,8 +76,8 @@
 }
 
 body {
-    cursor: none;
     color: rgb(var(--foreground-rgb));
+    scroll-behavior: smooth;
     background: linear-gradient(
             to bottom,
             transparent,
@@ -86,6 +86,16 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-a, button {
-    cursor: none;
+/* Glassmorphism card with grain texture */
+.glass-card {
+    @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg relative overflow-hidden;
+}
+.glass-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-conic-gradient(#00000008 0% 25%, transparent 25% 50%);
+    mix-blend-mode: overlay;
+    opacity: 0.4;
+    pointer-events: none;
 }
