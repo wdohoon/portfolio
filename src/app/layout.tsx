@@ -1,14 +1,9 @@
 import './globals.css'
 import { ReactNode } from 'react'
-import { Noto_Sans_KR } from 'next/font/google'
 import Header from '@/components/Header'
 import DarkModeToggle from "@/components/DarkModeToggle";
 import SmoothScrolling from '@/components/SmoothScrolling';
 
-const notoSansKr = Noto_Sans_KR({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-})
 
 export const metadata = {
   title: 'My Portfolio',
@@ -29,11 +24,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   `;
 
   return (
-    <html lang="ko" className={notoSansKr.className} suppressHydrationWarning>
+    <html lang="ko" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        <link rel="preload" href="/fonts/GeistVF.woff" as="font" type="font/woff" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/GeistMonoVF.woff" as="font" type="font/woff" crossOrigin="anonymous" />
       </head>
       <body className="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 relative overflow-x-hidden">
         <SmoothScrolling />

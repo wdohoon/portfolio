@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { motion, AnimatePresence, useInView } from 'framer-motion'
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
