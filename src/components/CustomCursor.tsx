@@ -80,7 +80,13 @@ export default function CustomCursor() {
         }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       >
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          width="40"
+          height="40"
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <motion.circle
             cx="20"
             cy="20"
@@ -92,22 +98,34 @@ export default function CustomCursor() {
             transition={{ duration: 0.3 }}
           />
           <motion.path
-            d="M20 12L20 28M12 20L28 20"
+            d="M15 14 L12 20 L15 26"
             stroke={cursorColor}
             strokeWidth="2"
             strokeLinecap="round"
+            fill="none"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.3 }}
           />
           <motion.path
-            d="M14 14L26 26M14 26L26 14"
+            d="M25 14 L28 20 L25 26"
             stroke={cursorColor}
             strokeWidth="2"
             strokeLinecap="round"
+            fill="none"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
+          />
+          <motion.path
+            d="M18 14 L22 26"
+            stroke={cursorColor}
+            strokeWidth="2"
+            strokeLinecap="round"
+            fill="none"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
           />
         </svg>
       </motion.div>

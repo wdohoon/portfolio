@@ -234,13 +234,13 @@ export default function Page() {
 
           <div className="relative z-10 text-center p-4 max-w-3xl">
             <motion.h1
-              className="text-5xl font-extrabold mb-6 text-white"
+              className="text-5xl sm:text-6xl font-extrabold mb-6 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
               style={{ letterSpacing: '0.1em' }}
               initial={{ opacity: 0, y: 50 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              안녕하세요, 원도훈입니다.
+              프론트엔드 개발자 원도훈입니다.
             </motion.h1>
             <motion.p
               className="text-2xl mb-10 text-white/90"
