@@ -26,12 +26,23 @@ export default function ContactForm() {
       return
     }
 
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error('EmailJS environment variables are not set.')
+      setError('Email service is not configured.')
+      setLoading(false)
+      return
+    }
+
     try {
       const result = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
+        serviceId,
+        templateId,
         { from_name: name, reply_to: email, message },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string
+        publicKey
       )
 
       console.log(result.text)
