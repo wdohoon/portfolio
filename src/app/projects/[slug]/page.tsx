@@ -1,19 +1,7 @@
 import { notFound } from 'next/navigation'
 import projects from '@/../data/projects.json'
 import Image from 'next/image'
-
-interface Project {
-  slug: string
-  name: string
-  description: string
-  problem: string
-  solution: string
-  tech: string[]
-  role: string
-  demo: string | null
-  code: string | null
-  image: string
-}
+import type { Project } from '@/types/project'
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   const project = (projects as Project[]).find((p) => p.slug === params.slug)

@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import ProjectCard from '@/components/ProjectCard'
 import projects from '@/../data/projects.json'
+import type { Project } from '@/types/project'
 
 function Section({ children }: { children: React.ReactNode }) {
   const ref = useRef(null)
@@ -22,7 +23,7 @@ function Section({ children }: { children: React.ReactNode }) {
 }
 
 export default function HomePage() {
-  const mainProjects = (projects as any[]).slice(0, 3)
+  const mainProjects = (projects as Project[]).slice(0, 3)
   return (
     <div>
       <Section>
