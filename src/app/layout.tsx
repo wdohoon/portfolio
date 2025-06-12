@@ -3,6 +3,8 @@ import { ReactNode } from 'react'
 import Header from '@/components/Header'
 import DarkModeToggle from "@/components/DarkModeToggle";
 import SmoothScrolling from '@/components/SmoothScrolling';
+import LenisScroller from '@/components/LenisScroller';
+import CustomCursor from '@/components/CustomCursor';
 
 
 export const metadata = {
@@ -27,8 +29,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="ko" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Pretendard&family=Space+Grotesk:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
       </head>
-      <body className="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 relative overflow-x-hidden">
+      <body className="font-sans bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 relative overflow-x-hidden">
+        <LenisScroller />
+        <CustomCursor />
         <SmoothScrolling />
         <Header/>
         <main className="pt-16 min-h-screen">

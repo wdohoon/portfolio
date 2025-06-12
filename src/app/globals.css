@@ -84,6 +84,7 @@ body {
             rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    font-family: 'Pretendard', 'Space Grotesk', sans-serif;
 }
 
 /* Glassmorphism card with grain texture */
@@ -98,4 +99,24 @@ body {
     mix-blend-mode: overlay;
     opacity: 0.4;
     pointer-events: none;
+}
+
+/* Custom cursor styles */
+#custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 9999px;
+    border: 2px solid #38bdf8;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.15s ease, background 0.15s ease;
+    mix-blend-mode: difference;
+}
+#custom-cursor.hover {
+    transform: translate(-50%, -50%) scale(1.5);
+    background: rgba(56, 189, 248, 0.3);
 }

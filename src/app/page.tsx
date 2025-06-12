@@ -113,6 +113,14 @@ export default function Page() {
               Frontend Developer 원도훈
             </motion.h1>
             <motion.p
+              className="text-xl mb-4 text-white/80"
+              initial={{ opacity: 0, y: 50 }}
+              animate={heroInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 1, delay: 0.4 }}
+            >
+              안녕하세요, 원도훈입니다.
+            </motion.p>
+            <motion.p
               className="text-2xl mb-10 text-white/90"
               initial={{ opacity: 0, y: 50 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
@@ -272,11 +280,13 @@ export default function Page() {
             {projects.map((project: Project, i: number) => (
               <motion.div
                 key={i}
-                className="p-6 glass-card shadow-lg rounded-lg flex flex-col items-start justify-between transform hover:scale-105 transition duration-300"
+                className="project-card p-6 glass-card shadow-lg rounded-lg flex flex-col items-start justify-between transition-transform duration-300"
+                style={{ transformStyle: 'preserve-3d' }}
                 variants={{
                   hidden: { opacity: 0, y: 50 },
                   visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 50 } },
                 }}
+                whileHover={{ rotateX: -5, rotateY: 5, scale: 1.05 }}
               >
                 <h3 className="font-bold text-xl mb-2">{project.name}</h3>
                 {/* 짧은 설명 */}
