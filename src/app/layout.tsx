@@ -1,9 +1,9 @@
 import './globals.css'
 import { ReactNode } from 'react'
 import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import DarkModeToggle from '@/components/DarkModeToggle'
-import SmoothScrolling from '@/components/SmoothScrolling'
+import DarkModeToggle from "@/components/DarkModeToggle";
+import SmoothScrolling from '@/components/SmoothScrolling';
+
 
 export const metadata = {
   title: 'My Portfolio',
@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         document.documentElement.classList.remove('dark');
       }
     })();
-  `
+  `;
 
   return (
     <html lang="ko" suppressHydrationWarning>
@@ -30,10 +30,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body className="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 relative overflow-x-hidden">
         <SmoothScrolling />
-        <Header />
-        <main className="pt-16 min-h-screen">{children}</main>
+        <Header/>
+        <main className="pt-16 min-h-screen">
+          {children}
+        </main>
         <DarkModeToggle />
-        <Footer />
+        <footer className="bg-white dark:bg-gray-800 shadow-inner">
+          <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <p className="text-center text-gray-500 dark:text-gray-400">
+              © {new Date().getFullYear()} My Portfolio. All rights reserved.
+            </p>
+          </div>
+        </footer>
       </body>
     </html>
   )
