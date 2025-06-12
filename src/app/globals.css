@@ -3,99 +3,106 @@
 @import 'tailwindcss/utilities';
 
 @layer components {
-    .timeline-img {
-        @apply absolute left-1/2 -ml-2 w-4 h-4 rounded-full bg-indigo-500 shadow-md;
-    }
+  .timeline-img {
+    @apply absolute left-1/2 -ml-2 w-4 h-4 rounded-full bg-indigo-500 shadow-md;
+  }
 
-    .timeline-container {
-        @apply relative pt-2 px-6 flex items-center justify-between md:flex-row-reverse;
-    }
+  .timeline-container {
+    @apply relative pt-2 px-6 flex items-center justify-between md:flex-row-reverse;
+  }
 
-    .timeline-pointer {
-        @apply absolute inset-0 left-10 h-4 w-4 transform rotate-45 bg-white dark:bg-gray-800 md:left-14;
-    }
-
+  .timeline-pointer {
+    @apply absolute inset-0 left-10 h-4 w-4 transform rotate-45 bg-white dark:bg-gray-800 md:left-14;
+  }
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 5px;
+  background: #888;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  background: #555;
 }
 
 /* Gradient text */
 .gradient-text {
-    background: linear-gradient(45deg, #4f46e5, #7c3aed);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: linear-gradient(45deg, #4f46e5, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Animated background */
 .animated-bg {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 }
 
 @keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --color-primary: #2563eb;
+  --color-accent: #ffb400;
+  --color-neutral: #f8f9fa;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --foreground-rgb: 255, 255, 255;
-        --background-start-rgb: 0, 0, 0;
-        --background-end-rgb: 0, 0, 0;
-    }
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+    --color-neutral: #1f2937;
+  }
 }
 
 body {
-    color: rgb(var(--foreground-rgb));
-    scroll-behavior: smooth;
-    background: linear-gradient(
-            to bottom,
-            transparent,
-            rgb(var(--background-end-rgb))
+  color: rgb(var(--foreground-rgb));
+  font-family: 'Inter var', 'Noto Sans KR', sans-serif;
+  scroll-behavior: smooth;
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
 }
 
 /* Glassmorphism card with grain texture */
 .glass-card {
-    @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg relative overflow-hidden;
+  @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg relative overflow-hidden;
 }
 .glass-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: repeating-conic-gradient(#00000008 0% 25%, transparent 25% 50%);
-    mix-blend-mode: overlay;
-    opacity: 0.4;
-    pointer-events: none;
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-conic-gradient(
+    #00000008 0% 25%,
+    transparent 25% 50%
+  );
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+  pointer-events: none;
 }
