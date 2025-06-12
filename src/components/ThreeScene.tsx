@@ -16,10 +16,10 @@ function RotatingBox() {
     return () => clearInterval(id);
   }, []);
 
-  useFrame(() => {
+  useFrame((state) => {
     if (ref.current) {
-      ref.current.rotation.x += 0.003;
-      ref.current.rotation.y += 0.003;
+      ref.current.rotation.x += (state.pointer.y * 0.5 - ref.current.rotation.x) * 0.1;
+      ref.current.rotation.y += (state.pointer.x * 0.5 - ref.current.rotation.y) * 0.1;
     }
   });
 

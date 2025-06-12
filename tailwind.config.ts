@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['"Pretendard"', '"Space Grotesk"', 'ui-sans-serif', 'system-ui'],
+      },
       colors: {
         primary: '#7E3FF2',
         accent: '#FFB703',
